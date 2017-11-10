@@ -7,7 +7,7 @@ export function defaultIpfsDaemonSettings(ipfsDataDir) {
         API: '/ip4/127.0.0.1/tcp/0',
         Swarm: [
           // '/ip4/0.0.0.0/tcp/0',
-        '/libp2p-webrtc-star/dns4/star-signal.cloud.ipfs.team/wss',
+          '/dns4/star-signal.cloud.ipfs.team/wss/p2p-webrtc-star',
         ],
         Gateway: '/ip4/0.0.0.0/tcp/0'
       },
@@ -18,7 +18,7 @@ export function defaultIpfsDaemonSettings(ipfsDataDir) {
           "Access-Control-Allow-Credentials": ["true"]
         }
       },
-      Bootstrap: [],
+      // Bootstrap: [],
       Discovery: {
         MDNS: {
           Enabled: false,

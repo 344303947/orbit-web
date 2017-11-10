@@ -3,11 +3,18 @@
 const webpack = require('webpack')
 const path = require('path')
 const common = require('./common.config.js')
+const Uglify = require('uglifyjs-webpack-plugin')
 
 const extractCommons = new webpack.optimize.CommonsChunkPlugin({
   name: 'commons',
   filename: 'commons.js'
 })
+
+const uglifyOptions = {
+  uglifyOptions: {
+    mangle: false,
+  },
+}
 
 let config = {
   output: {
@@ -25,7 +32,8 @@ let config = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
-    })
+    }),
+    new Uglify(uglifyOptions),
   ]
 }
 

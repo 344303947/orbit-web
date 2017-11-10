@@ -3,6 +3,8 @@
 const webpack = require('webpack')
 const path = require('path')
 const common = require('./common.config.js')
+const Uglify = require('uglifyjs-webpack-plugin')
+
 
 const extractCommons = new webpack.optimize.CommonsChunkPlugin({
   name: 'commons',
@@ -35,6 +37,7 @@ let config = {
   cache: false,
   // TODO: check if still needed with the new webpack-dev-server
   devServer: {
+    contentBase: './dist',
     headers: { "Access-Control-Allow-Origin": "*" }
   },
   plugins: [
